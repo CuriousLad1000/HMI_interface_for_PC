@@ -1,0 +1,42 @@
+setting for date and time
+
+Open flaps when system boots  -- servo control
+
+* flaps based on temperature -- Test basis
+
+Enable power saver screen
+
+Enable/disable system status LED. (Blue light on CPU cabinet)
+
+Reset nextion display
+
+-assign channels in settings to
+
+
+-Controller
+-CPU
+-GPU
+-HDD
+
+-GPU
+-HDD
+-HDD Bay
+-Motherboard
+
+-HDD Bay
+-Motherboard
+-N-Bridge
+-PSU
+
+-N-Bridge
+-PSU
+-Radiator
+-RAM
+
+-PSU
+-Radiator
+-RAM
+-Reservoir
+
+
+

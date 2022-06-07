@@ -1,0 +1,12 @@
+Different modes
+
+-Rainbow
+-Single color
+-Fading on single color
+-Rainbow cycle
+-Color based on temperature
+-off
+
+
+LED Channel selection.
+Room for date and time

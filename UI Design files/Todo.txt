@@ -1,0 +1,20 @@
+
+
+tst and prepare code for leds   --------------------- done
+
+verify working of servo motor code    --------------- done
+
+complie and run final test for the code  --------- done
+
+add blink logo when shutdown command initiates
+
+add power saver from nextion library and test it.  ----- done
+
+create power switch jumper splitter  -- done
+
+
+create connector harness for fans and LEDs
+
+prepare sensors for installation
+
+assemble servo vents and test it

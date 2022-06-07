@@ -1,0 +1,2 @@
+Display temperature gauge and current temperature in numbers.
+

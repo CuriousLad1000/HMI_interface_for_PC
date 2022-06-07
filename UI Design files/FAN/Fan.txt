@@ -1,0 +1,7 @@
+control the speed of fan using sliders or knobs.
+
+save speed for each fan to eprom
+
+Automatic mode -- speed of fan depending on the temperature sensors.
+
+Room for date and time

@@ -1,0 +1,4 @@
+// myNextion.buttonToggle(button1State, "ON", 0, 3);  -- button picture Toggle
+// myNextion.sendCommand("sleep=1");                  --- screen OFF
+// myNextion.sendCommand("sleep=0");
+// myNextion.sendCommand("ref ON");  --- refresh component ON
