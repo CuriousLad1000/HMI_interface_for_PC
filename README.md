@@ -114,7 +114,7 @@ After completion, the HMI interface will have the following features.
 **HMI Operational**
 
 <p align="Center">
-  <img src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/images/9eafdde4355e867aa01d2860b808d565.jpeg">
+  <img width="641" height="613" src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/images/9eafdde4355e867aa01d2860b808d565.jpeg">
 </p>
 
 <br/>
