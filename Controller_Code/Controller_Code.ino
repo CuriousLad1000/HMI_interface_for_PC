@@ -14,7 +14,7 @@ int sys_stat_pin = 2; // input to detect PC status
 #define LED_CH1  A0
 #define LED_CH2  A1
 #define LED_CH3  A2
-#define NUM_LEDS 16     // # of LEDS in the strip
+#define NUM_LEDS 32     // # of LEDS in the strip
 CRGB leds_CH1[NUM_LEDS];
 CRGB leds_CH2[NUM_LEDS];
 CRGB leds_CH3[NUM_LEDS];
@@ -53,7 +53,7 @@ int sv1 = 9;
 int sv2 = 10;
 
 //========================= LCD =============================================
-int LCD_TX = A3;
+int LCD_TX = A8;  // A8 ON MEGA ROUTED TO A3
 int LCD_RX = A4;
 SoftwareSerial nextion(LCD_TX, LCD_RX);
 Nextion myNextion(nextion, 9600); //create a Nextion object named myNextion using the nextion serial port @ 9600bps
@@ -158,7 +158,11 @@ void loop()
   R_del2 = myNextion.getComponentValue("RAINBOW2.Rdel2_0"); // 10 to 1000 values
   Tclr = myNextion.getComponentValue("AUTOCLR.Tclr_0"); // 0 or 1 values
   LED = myNextion.getComponentValue("SET2.LED"); // 0 or 1 value
-  //Serial.println(LED);
+
+  // Serial.println(F_sli1);
+  // Serial.println(F_del1);
+  // Serial.println(chnl1);
+
   sys_switch = myNextion.getComponentValue("HOME.n0"); // 0 or 1 value
   sys_led = myNextion.getComponentValue("SET1.sys_led"); // 0 or 1 value
 
@@ -179,8 +183,8 @@ void loop()
   R_sli2 = constrain(R_sli2, 0, 100);
   R_del2 = constrain(R_del2, 10, 1000);
   Tclr = constrain(Tclr, 0, 1);
- // Serial.print("FAN: ");
- // Serial.println(FAN);
+  // Serial.print("FAN: ");
+  // Serial.println(FAN);
 
 
   //===============================  Temperature CODE  ===================================================================
@@ -248,17 +252,21 @@ void loop()
   {
     srvo();
   }
-  if (flap_heat == 1 && sys_stat2 == 1 && flap_boot == 0)
+  else if (flap_heat == 1 && sys_stat2 == 1 && flap_boot == 0)
   {
     srvo_auto();
   }
+  else if ((flap_boot == 0 && flap_heat == 0) || (flap_boot == 1 && flap_heat == 1))
+  {
+    // Do nothing
+  }
   // myservo.detach();
   //=========================================================================================== Fan Auto =============
-//  Serial.print("system_stat: ");
-//  Serial.println(sys_stat2);
-//  Serial.print("FAN: ");
-//  Serial.println(FAN);
-  
+  //  Serial.print("system_stat: ");
+  //  Serial.println(sys_stat2);
+  //  Serial.print("FAN: ");
+  //  Serial.println(FAN);
+
   if (FAN == 1)
   {
     if (sys_stat2 == 1)
@@ -688,7 +696,8 @@ void srvo()
     if (sys_stat2 == 1)  // sys. On flag
     {
       myservo.attach(sv1);
-      for (pos = 30; pos <= 90; pos += 1)
+      //for (pos = 30; pos <= 90; pos += 1)
+      for (pos = 90; pos >= 30; pos -= 1)
       {
         myservo.write(pos);
         delay(15);
@@ -710,7 +719,8 @@ void srvo()
     if (sys_stat2 == 0)
     {
       myservo.attach(sv1);
-      for (pos = 90; pos >= 30; pos -= 1)
+      //for (pos = 90; pos >= 30; pos -= 1)
+      for (pos = 30; pos <= 90; pos += 1)
       {
         myservo.write(pos);
         delay(15);
