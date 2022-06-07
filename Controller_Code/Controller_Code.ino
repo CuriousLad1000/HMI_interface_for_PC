@@ -14,7 +14,7 @@ int sys_stat_pin = 2; // input to detect PC status
 #define LED_CH1  A0
 #define LED_CH2  A1
 #define LED_CH3  A2
-#define NUM_LEDS 8     // # of LEDS in the strip
+#define NUM_LEDS 16     // # of LEDS in the strip
 CRGB leds_CH1[NUM_LEDS];
 CRGB leds_CH2[NUM_LEDS];
 CRGB leds_CH3[NUM_LEDS];
@@ -78,6 +78,7 @@ int ch3_SLI;
 int ch4_SLI;
 int auto_tmp;
 int Res_Temp;   //for auto fan control
+int FAN;
 //========================== LED Var ==============================================
 
 byte S_cntr;
@@ -95,6 +96,7 @@ byte R_sli2;
 int R_del2;
 byte Tclr;
 int clr_Temp;
+int LED;
 //============================SERVO var.=================================
 int flag_on = 0;
 int flag_off = 0;
@@ -132,7 +134,6 @@ void setup()
   myservo.attach(sv1);
   //myservo.attach(sv2);
 }
-
 void loop()
 {
   ch1_SLI = myNextion.getComponentValue("FAN.fanSli1");  // 0 to 100 values
@@ -140,6 +141,7 @@ void loop()
   ch3_SLI = myNextion.getComponentValue("FAN2.fanSli3"); // 0 to 100 values
   ch4_SLI = myNextion.getComponentValue("FAN2.fanSli4"); // 0 to 100 values
   auto_tmp = myNextion.getComponentValue("FAN.auto"); // 0 or 1 value
+  FAN = myNextion.getComponentValue("SET2.FAN"); // 0 or 1 value
 
   S_cntr = myNextion.getComponentValue("SINGLE.cntr_0"); // 1 to 16 values
   S_sli1 = myNextion.getComponentValue("SINGLE.Ssli1_0"); // 0 to 100 values
@@ -155,7 +157,8 @@ void loop()
   R_sli2 = myNextion.getComponentValue("RAINBOW2.Rsli2_0"); // 0 to 100 values
   R_del2 = myNextion.getComponentValue("RAINBOW2.Rdel2_0"); // 10 to 1000 values
   Tclr = myNextion.getComponentValue("AUTOCLR.Tclr_0"); // 0 or 1 values
-
+  LED = myNextion.getComponentValue("SET2.LED"); // 0 or 1 value
+  //Serial.println(LED);
   sys_switch = myNextion.getComponentValue("HOME.n0"); // 0 or 1 value
   sys_led = myNextion.getComponentValue("SET1.sys_led"); // 0 or 1 value
 
@@ -176,16 +179,9 @@ void loop()
   R_sli2 = constrain(R_sli2, 0, 100);
   R_del2 = constrain(R_del2, 10, 1000);
   Tclr = constrain(Tclr, 0, 1);
-  /*Serial.print("chnl1: ");
-    Serial.println(chnl1);
-    Serial.print("chnl2: ");
-    Serial.println(chnl2);
-    Serial.print("chnl3: ");
-    Serial.println(chnl3);
-    Serial.print("R_sli1: ");
-    Serial.println(R_sli1);
-    Serial.print("R_del1: ");
-    Serial.println(R_del1);*/
+ // Serial.print("FAN: ");
+ // Serial.println(FAN);
+
 
   //===============================  Temperature CODE  ===================================================================
 
@@ -198,24 +194,6 @@ void loop()
   Res_Temp2 = TempSys_TX(sensors3, 3);
   Res_Temp2 = TempSys_TX(sensors4, 4);
   Res_Temp2 = TempSys_TX(sensors5, 5);
-  //=========================================================================================== Fan Auto =============
-  if (auto_tmp == 1)
-  {
-    MAP_FAN_AUTO(FAN_CH1, loc1);
-    MAP_FAN_AUTO(FAN_CH2, loc2);
-    MAP_FAN_AUTO(FAN_CH3, loc3);
-    MAP_FAN_AUTO(FAN_CH4, loc4);
-  }
-  else if (auto_tmp == 0)
-  {
-    MAP_FAN(FAN_CH1, ch1_SLI);
-    MAP_FAN(FAN_CH2, ch2_SLI);
-    MAP_FAN(FAN_CH3, ch3_SLI);
-    MAP_FAN(FAN_CH4, ch4_SLI);
-  }
-  //=================================LED CODE=================================================================
-  led();
-
   //=========================================SYSTEM POWER CODE==========================================================
   //=== Detect Button Press ==
 
@@ -274,11 +252,78 @@ void loop()
   {
     srvo_auto();
   }
- // myservo.detach();
+  // myservo.detach();
+  //=========================================================================================== Fan Auto =============
+//  Serial.print("system_stat: ");
+//  Serial.println(sys_stat2);
+//  Serial.print("FAN: ");
+//  Serial.println(FAN);
+  
+  if (FAN == 1)
+  {
+    if (sys_stat2 == 1)
+    {
+      if (auto_tmp == 1)
+      {
+        MAP_FAN_AUTO(FAN_CH1, loc1);
+        MAP_FAN_AUTO(FAN_CH2, loc2);
+        MAP_FAN_AUTO(FAN_CH3, loc3);
+        MAP_FAN_AUTO(FAN_CH4, loc4);
+      }
+      else if (auto_tmp == 0)
+      {
+        MAP_FAN(FAN_CH1, ch1_SLI);
+        MAP_FAN(FAN_CH2, ch2_SLI);
+        MAP_FAN(FAN_CH3, ch3_SLI);
+        MAP_FAN(FAN_CH4, ch4_SLI);
+      }
+    }
+    else if (sys_stat2 == 0)
+    {
+      analogWrite(FAN_CH1, 0); //0 and 40 to 255
+      analogWrite(FAN_CH2, 0); //0 and 40 to 255
+      analogWrite(FAN_CH3, 0); //0 and 40 to 255
+      analogWrite(FAN_CH4, 0); //0 and 40 to 255
+    }
+  }
+  else if (FAN == 0)
+  {
+    if (auto_tmp == 1)
+    {
+      MAP_FAN_AUTO(FAN_CH1, loc1);
+      MAP_FAN_AUTO(FAN_CH2, loc2);
+      MAP_FAN_AUTO(FAN_CH3, loc3);
+      MAP_FAN_AUTO(FAN_CH4, loc4);
+    }
+    else if (auto_tmp == 0)
+    {
+      MAP_FAN(FAN_CH1, ch1_SLI);
+      MAP_FAN(FAN_CH2, ch2_SLI);
+      MAP_FAN(FAN_CH3, ch3_SLI);
+      MAP_FAN(FAN_CH4, ch4_SLI);
+    }
+  }
+
+  //=================================LED CODE=================================================================
+  if (LED == 1)
+  {
+
+    if (sys_stat2 == 1)
+    {
+      led();
+    }
+    else
+    {
+      offline(1);
+      offline(2);
+      offline(3);
+    }
+  }
+  else if (LED == 0)
+  {
+    led();
+  }
 }
-
-
-
 
 
 //==================================================================================================================================================
