@@ -17,7 +17,7 @@ The project will involve some custom hardware designing, PCB fabrication, UX Des
 -   Arduino MEGA
 -   3.5-inch Touch panel from Nextion
 -   DC to DC Buck-Boost drivers
--   Mosfets (IRFZ44N)
+-   Mosfets (IRF510)
 -   various passive components
 -   Acryllic and MDF for casing and PC cabinet casing.
 -   Laser cutter
