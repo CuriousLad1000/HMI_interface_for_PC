@@ -144,3 +144,5 @@ After completion, the HMI interface will have the following features.
 <p align="Center">
   <img src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/videos/vid2.gif">
 </p>
+
+<br/>
