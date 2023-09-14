@@ -67,7 +67,7 @@ After completion, the HMI interface will have the following features.
 **Home screen**
 
 <p align="Center">
-  <img src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/images/6731bab8c7ef8065782866eef224d636.png">
+  <img src="https://raw.githubusercontent.com/wiki/CuriousLad1000/HMI_interface_for_PC/Resources/images/6731bab8c7ef8065782866eef224d636.png">
 </p>
 
 <p align="Center"> <i>"note: logo copyright belongs to Micro-Star INT'L CO., LTD" </i></p>
@@ -78,7 +78,7 @@ After completion, the HMI interface will have the following features.
 **Set Lighting modes**
 
 <p align="Center">
-  <img src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/images/62900bcb3576cdbc161d63ddba7723eb.png">
+  <img src="https://raw.githubusercontent.com/wiki/CuriousLad1000/HMI_interface_for_PC/Resources/images/62900bcb3576cdbc161d63ddba7723eb.png">
 </p>
 
 <br/>
@@ -87,7 +87,7 @@ After completion, the HMI interface will have the following features.
 **Temperature monitor**
 
 <p align="Center">
-  <img src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/images/15f72c10f2f684866036eaa6ada40685.png">
+  <img src="https://raw.githubusercontent.com/wiki/CuriousLad1000/HMI_interface_for_PC/Resources/images/15f72c10f2f684866036eaa6ada40685.png">
 </p>
 
 <br/>
@@ -96,7 +96,7 @@ After completion, the HMI interface will have the following features.
 ## Device pics
 
 <p align="Center">
-  <img src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/images/557d534d33388b785a4e1bb59808203e.jpeg">
+  <img src="https://raw.githubusercontent.com/wiki/CuriousLad1000/HMI_interface_for_PC/Resources/images/557d534d33388b785a4e1bb59808203e.jpeg">
 </p>
 
 <br/>
@@ -105,7 +105,7 @@ After completion, the HMI interface will have the following features.
 **HMI Installed**
 
 <p align="Center">
-  <img width="690" height="388" src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/images/9e96deb003c0fc9843c57cbc6452ca3a.jpeg">
+  <img width="690" height="388" src="https://raw.githubusercontent.com/wiki/CuriousLad1000/HMI_interface_for_PC/Resources/images/9e96deb003c0fc9843c57cbc6452ca3a.jpeg">
 </p>
 
 <br/>
@@ -114,7 +114,7 @@ After completion, the HMI interface will have the following features.
 **HMI Operational**
 
 <p align="Center">
-  <img width="641" height="613" src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/images/9eafdde4355e867aa01d2860b808d565.jpeg">
+  <img width="641" height="613" src="https://raw.githubusercontent.com/wiki/CuriousLad1000/HMI_interface_for_PC/Resources/images/9eafdde4355e867aa01d2860b808d565.jpeg">
 </p>
 
 <br/>
@@ -133,7 +133,7 @@ After completion, the HMI interface will have the following features.
 **Device in action part-1**
 
 <p align="Center">
-  <img src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/videos/vid1.gif">
+  <img src="https://raw.githubusercontent.com/wiki/CuriousLad1000/HMI_interface_for_PC/Resources/videos/vid1.gif">
 </p>
 
 <br/>
@@ -142,7 +142,7 @@ After completion, the HMI interface will have the following features.
 **Device in action part-2**
 
 <p align="Center">
-  <img src="/osama.tasneem/HMI_interface_for_PC/wiki/raw/Resources/videos/vid2.gif">
+  <img src="https://raw.githubusercontent.com/wiki/CuriousLad1000/HMI_interface_for_PC/Resources/videos/vid2.gif">
 </p>
 
 <br/>
